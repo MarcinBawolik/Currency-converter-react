@@ -7,7 +7,9 @@ function App() {
   const [result, setResult] = useState();
 
   const calculateResault = (currency, amountToBeConverted) => {
-    const rate = currencies.find(({index}) => index === currency).rate;
+    const rate = currencies
+    .find(({ shortName }) => shortName === currency)
+    .rate;
 
     setResult({
       sourceAmount: +amountToBeConverted,

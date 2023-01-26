@@ -6,14 +6,15 @@ import ("./style.css");
 
  const Form = ({calculateResault, result}) => {
 
-    const [amoutToBeConverted, setAmountToBeConverted] = useState("")
-    const [currency, setCurrency] = useState(currencies[0].index)
+    const [currency, setCurrency] = useState(currencies[0].shortName);
+    const [amoutToBeConverted, setAmountToBeConverted] = useState("");
+    
     
 
     const onFormSubmit = (event) => {
         event.preventDefault();
         calculateResault(amoutToBeConverted, currency);
-    };
+    }
 
     return (
         <form className="form" onSubmit={onFormSubmit}>
@@ -48,8 +49,8 @@ import ("./style.css");
                     >
                         {currencies.map((currency => (
                             <option 
-                            key={currency.index}
-                            value={currency.index}
+                            key={currency.shortName}
+                            value={currency.shortName}
                             >
                                 {currency.name}
                             </option>

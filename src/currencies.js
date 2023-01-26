@@ -1,17 +1,17 @@
-export const currencies = () => [
+export const currencies = [
     {
-        index: "USD",
+        shortName: "USD",
         name: "Dolar amerykański",
-        rate: 4.4034
+        rate: 4.4034,
     },
     {
-        index: "EUR",
+        shortName: "EUR",
         name: "Euro",
-        rate: 4.7415
+        rate: 4.7415,
     },
     {
-        index: "GBP",
+        shortName: "GBP",
         name: "Funt brytyjski",
-        rate: 5.3353
+        rate: 5.3353,
     },
 ];
