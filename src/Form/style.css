@@ -1,52 +1,39 @@
 .form {
-    background-image: url("../images/backgroundimage.png");
+    /* background-image: url("./images/backgroundimage.png"); */
+    display: block;
     border-radius: 16px;
-    margin: 30px auto;
-    min-width: 437.60px;
-    max-width: 1000px;
     padding: 16px;
-}
-
-.form__legend {
-    border-radius: 20%;
-    font-weight: 700;
-    font-size: 20px;
-    margin-left: 50px;
-}
-
-.form__fieldset {
-    border: solid 2px #777;
-    border-radius: 16px;
-}
-
-.form__unorderedList {
-    list-style: none;
-}
-
-.form__listItem {
-    padding: 10px 10px 10px 0;
-}
-
-.form__spanText {
-    margin-right: 10px;
-    margin-left: 10px;
-}
-
-.form__spanText--shorter {
-    margin-right: 88px;
-}
-
-.form__button {
+    margin-top: 0px;
+  }
+  .form__button {
     border: none;
+    background-color: teal;
+    color: white;
     border-radius: 16px;
-    background-color: transparent;
+    
     width: 100%;
     padding: 10px;
     margin: 10px auto;
-    font-weight: bold;
-    font-size: larger;
-}
-
-.form__paragraph {
+   
+  }
+  .form__field{
+    border: 1px solid #ccc;
+    padding: 10px;
+    width:  100%;
+    max-width: 350px;
+    border-radius: 16px;
+  }
+  
+  .form__header{
+    color: teal;
     text-align: center;
-}
+  }
+  .form__labelText{
+    width: 100%;
+    max-width: 200px;
+    display: inline-block;
+    margin-right: 5px;
+  }
+  .form__info{
+    color: rgb(163, 161, 161);
+  }
