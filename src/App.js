@@ -1,27 +1,27 @@
-import Form from "./Form";
+import  Form  from "./Form";
+import { currencies } from "./currencies";
+import { useState } from "react";
 
 function App() {
-  const calculateResault = (amoutToBeConverted, result, currency) => {
-    switch (currency) {
-      case "USD":
-        result = amoutToBeConverted / 4.4034
-        break;
+ 
+  const [result, setResult] = useState();
 
-      case "EUR":
-        result = amoutToBeConverted / 4.7415
-        break;
+  const calculateResault = (currency, amountToBeConverted) => {
+    const rate = currencies.find(({index}) => index === currency).rate;
 
-      case "GBP":
-        result = amoutToBeConverted / 5.3353
-        break;
-    };
-
-  };
+    setResult({
+      sourceAmount: +amountToBeConverted,
+      targetAmount: amountToBeConverted / rate,
+      currency,
+    });
+  }
   return (
 
     <div className="container">
-      <Form />
-
+      <Form 
+      calculateResault={calculateResault}
+      result={result}
+      />
     </div>
   )
 }
