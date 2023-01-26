@@ -1,51 +1,72 @@
-import "./style.css";
+import { useState } from "react";
+import ("./style.css");
 
 
-const Form = (props) => (
-<form className="form ">
-    <fieldset className="form__fieldset">
-        <legend className="form__legend">Kantor wymiany walut</legend>
+const Form = (calculateResault) => {
 
-        <ul className="form__unorderedList">
-
-            <li className="form__listItem"> <label>
-                <span className="form__spanText ">Kwota do przewalutowania:*</span><input type="number" required
-                    autofocus min="1" step="0.01" placeholder="Kwota do wymiany"
-                    className="form__input" />
-            </label>
-            </li>
-            <li className="form__listItem">
-                <label>
-                    <span className="form__spanText form__spanText--shorter">Waluta wejścia:</span><select
-                        name="input">
-                        <option value="PLN">PLN - złoty polski</option>
-                        <option value="USD">USD - dolar amerykański</option>
-                        <option value="EUR">EUR - euro</option>
-                    </select>
-                </label>
-            </li>
-            <li className="form__listItem">
-                <label>
-                    <span className="form__spanText form__spanText--shorter">Waluta wyjścia:</span><select
-                        name="output">
-                        <option value="PLN">PLN - złoty polski</option>
-                        <option value="USD">USD - dolar amerykański</option>
-                        <option value="EUR">EUR - euro</option>
-                    </select>
-                </label>
-            </li>
-        </ul>
-
-    </fieldset>
-    <button className="form__button">Przelicz</button>
-    <fieldset className="form__fieldset">
-        <legend className="form__legend">Wynik</legend>
-        <p className="form__paragraph">
-            <strong>0</strong>
+    const [amoutToBeConverted, setAmountToBeConverted] = useState("")
+    const [currency, setCurrency] = useState("Dolar amerykański")
+    const [result, setResult] = useState("")
+ 
+    const onFormSubmit = (event) => {
+    event.preventDefault();
+    calculateResault(amoutToBeConverted, currency, result);
+  };
+    
+    return (
+<form className="form" onSubmit={onFormSubmit}>
+        <h1 className="form__header">
+          Przelicznik walut
+        </h1>
+        <p>
+          <label>
+            <span className="form__labelText">
+              Kwota w zł*
+            </span>
+            <input
+              value={amoutToBeConverted}
+              placeholder="Wpisz kwotę w zł"
+              className="form__field"
+              type="number"
+              required
+              step="0.01"
+              onChange={({target}) => setAmountToBeConverted(target.value)}
+              />
+          </label>
         </p>
-        <p className="form__paragraph">Kurs Walut z dnia 12.12.2022r. pochodzi ze strony nbp.pl</p>
-    </fieldset>
-</form>
-)
+        <p>
+          <label>
+            <span className="form__labelText">
+              Waluta:
+            </span>
+            <select 
+            value={currency}
+            className="form__field"
+            onChange={({target}) => setCurrency(target.value)}
+            >
+              <option value="USD">Dolar amerykański</option>
+              <option value="EUR">Euro</option>
+              <option value="GBP">Funt brytyjski</option>
+            </select>
+          </label>
+        </p>
+        <p>
+          <button className="form__button">Przelicz!</button>
+        </p>
+        <p className="form__info">
+          Kursy pochodzą ze strony nbp.pl z Tabeli nr 009/C/NBP/2023 z dnia 2023-01-12
+
+        </p>
+        <p 
+       value={result}
+       className="form__result"
+       onChange={({target}) => setResult(target.value)}
+        >
+
+        </p>
+
+      </form>
+    )
+};
 
 export default Form;
