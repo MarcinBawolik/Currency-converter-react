@@ -12,7 +12,7 @@ function App() {
         break;
 
       case "GBP":
-        result = amoutToBeConverted / 5, 3353
+        result = amoutToBeConverted / 5.3353
         break;
     };
 
