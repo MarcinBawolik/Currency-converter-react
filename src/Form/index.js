@@ -7,13 +7,14 @@ import ("./style.css");
  const Form = ({calculateResault, result}) => {
 
     const [currency, setCurrency] = useState(currencies[0].shortName);
-    const [amoutToBeConverted, setAmountToBeConverted] = useState("");
+    const [amountToBeConverted, setAmountToBeConverted] = useState("");
     
     
 
     const onFormSubmit = (event) => {
         event.preventDefault();
-        calculateResault(amoutToBeConverted, currency);
+        calculateResault({amountToBeConverted, currency});
+        
     }
 
     return (
@@ -27,7 +28,7 @@ import ("./style.css");
                         Kwota w zł*
                     </span>
                     <input
-                        value={amoutToBeConverted}
+                        value={amountToBeConverted}
                         placeholder="Wpisz kwotę w zł"
                         className="form__field"
                         type="number"

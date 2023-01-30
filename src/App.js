@@ -6,7 +6,8 @@ function App() {
  
   const [result, setResult] = useState();
 
-  const calculateResault = (currency, amountToBeConverted) => {
+  const calculateResault = ({currency, amountToBeConverted}) => {
+    
     const rate = currencies
     .find(({ shortName }) => shortName === currency)
     .rate;
