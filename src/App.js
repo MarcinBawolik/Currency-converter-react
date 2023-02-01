@@ -7,7 +7,6 @@ function App() {
   const [result, setResult] = useState();
 
   const calculateResault = ({currency, amountToBeConverted}) => {
-    
     const rate = currencies
     .find(({ shortName }) => shortName === currency)
     .rate;
@@ -19,7 +18,6 @@ function App() {
     });
   }
   return (
-
     <div className="container">
       <Form 
       calculateResault={calculateResault}
@@ -28,6 +26,5 @@ function App() {
     </div>
   )
 }
-
 
 export default App;
