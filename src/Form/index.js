@@ -1,24 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { currencies } from "../currencies";
 import { Result } from "../Result";
-import ("./style.css");
+import { AcctualDate } from "../AcctualDate";
+import("./style.css");
 
 
- const Form = ({calculateResault, result}) => {
-
+const Form = ({ calculateResault, result }) => {
     const [currency, setCurrency] = useState(currencies[0].shortName);
     const [amountToBeConverted, setAmountToBeConverted] = useState("");
-    
-    
 
     const onFormSubmit = (event) => {
         event.preventDefault();
-        calculateResault({amountToBeConverted, currency});
-        
+        calculateResault({ amountToBeConverted, currency });
     }
 
     return (
         <form className="form" onSubmit={onFormSubmit}>
+            <AcctualDate />
             <h1 className="form__header">
                 Przelicznik walut
             </h1>
@@ -49,14 +47,14 @@ import ("./style.css");
                         onChange={({ target }) => setCurrency(target.value)}
                     >
                         {currencies.map((currency => (
-                            <option 
-                            key={currency.shortName}
-                            value={currency.shortName}
+                            <option
+                                key={currency.shortName}
+                                value={currency.shortName}
                             >
                                 {currency.name}
                             </option>
                         )))}
-                        
+
                     </select>
                 </label>
             </p>
@@ -68,7 +66,6 @@ import ("./style.css");
 
             </p>
             <Result result={result} />
-
         </form>
     )
 };
