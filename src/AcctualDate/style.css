@@ -1,0 +1,7 @@
+.acctualDate{
+    font-family: 'Space Mono', monospace;
+    display: grid;
+    justify-content: end;
+    padding: 16px;
+    color: rgb(147, 147, 147);
+}
