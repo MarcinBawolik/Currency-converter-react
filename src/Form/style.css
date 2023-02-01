@@ -1,39 +1,41 @@
 .form {
-    /* background-image: url("./images/backgroundimage.png"); */
-    display: block;
-    border-radius: 16px;
-    padding: 16px;
-    margin-top: 0px;
-  }
-  .form__button {
-    border: none;
-    background-color: teal;
-    color: white;
-    border-radius: 16px;
-    
-    width: 100%;
-    padding: 10px;
-    margin: 10px auto;
-   
-  }
-  .form__field{
-    border: 1px solid #ccc;
-    padding: 10px;
-    width:  100%;
-    max-width: 350px;
-    border-radius: 16px;
-  }
-  
-  .form__header{
-    color: teal;
-    text-align: center;
-  }
-  .form__labelText{
-    width: 100%;
-    max-width: 200px;
-    display: inline-block;
-    margin-right: 5px;
-  }
-  .form__info{
-    color: rgb(163, 161, 161);
-  }
+  background-color: white;
+  border-radius: 16px;
+  padding: 16px;
+  margin: 250px 50px;
+}
+
+.form__button {
+  border: none;
+  background-color: teal;
+  color: white;
+  border-radius: 16px;
+  width: 100%;
+  padding: 10px;
+  margin: 10px auto;
+
+}
+
+.form__field {
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 100%;
+  max-width: 350px;
+  border-radius: 16px;
+}
+
+.form__header {
+  color: teal;
+  text-align: center;
+}
+
+.form__labelText {
+  width: 100%;
+  max-width: 200px;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.form__info {
+  color: rgb(163, 161, 161);
+}
