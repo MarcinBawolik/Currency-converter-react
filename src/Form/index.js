@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useRef } from "react";
 import { currencies } from "../currencies";
 import { Result } from "../Result";
 import { AcctualDate } from "../AcctualDate";
@@ -8,10 +8,14 @@ import("./style.css");
 const Form = ({ calculateResault, result }) => {
     const [currency, setCurrency] = useState(currencies[0].shortName);
     const [amountToBeConverted, setAmountToBeConverted] = useState("");
-
+    const inputRef = useRef(null)
     const onFormSubmit = (event) => {
         event.preventDefault();
         calculateResault({ amountToBeConverted, currency });
+    }
+    
+    const  focusInput = () => {
+        inputRef.current.focus();
     }
 
     return (
@@ -26,6 +30,7 @@ const Form = ({ calculateResault, result }) => {
                         Kwota w zł*
                     </span>
                     <input
+                        ref={inputRef}
                         value={amountToBeConverted}
                         placeholder="Wpisz kwotę w zł"
                         className="form__field"
@@ -59,7 +64,7 @@ const Form = ({ calculateResault, result }) => {
                 </label>
             </p>
             <p>
-                <button className="form__button">Przelicz!</button>
+                <button onClick={focusInput} className="form__button">Przelicz!</button>
             </p>
             <p className="form__info">
                 Kursy pochodzą ze strony nbp.pl z Tabeli nr 009/C/NBP/2023 z dnia 2023-01-12
