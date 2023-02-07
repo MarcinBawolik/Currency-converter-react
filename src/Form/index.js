@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 import { currencies } from "../currencies";
 import { Result } from "../Result";
 import { AcctualDate } from "../AcctualDate";
-import("./style.css");
+import { StyledForm, FormButton, FormParagraph, FormHeader, FormSelect, FormSpan } from "./styled";
 
 
 const Form = ({ calculateResault, result }) => {
@@ -19,16 +19,16 @@ const Form = ({ calculateResault, result }) => {
     }
 
     return (
-        <form className="form" onSubmit={onFormSubmit}>
+        <StyledForm onSubmit={onFormSubmit}>
             <AcctualDate />
-            <h1 className="form__header">
+            <FormHeader>
                 Przelicznik walut
-            </h1>
+            </FormHeader>
             <p>
                 <label>
-                    <span className="form__labelText">
+                    <FormSpan>
                         Kwota w zł*
-                    </span>
+                    </FormSpan>
                     <input
                         ref={inputRef}
                         value={amountToBeConverted}
@@ -43,10 +43,10 @@ const Form = ({ calculateResault, result }) => {
             </p>
             <p>
                 <label>
-                    <span className="form__labelText">
+                    <FormSpan>
                         Waluta:
-                    </span>
-                    <select
+                    </FormSpan>
+                    <FormSelect
                         value={currency}
                         className="form__field"
                         onChange={({ target }) => setCurrency(target.value)}
@@ -60,18 +60,18 @@ const Form = ({ calculateResault, result }) => {
                             </option>
                         )))}
 
-                    </select>
+                    </FormSelect>
                 </label>
             </p>
             <p>
-                <button onClick={focusInput} className="form__button">Przelicz!</button>
+                <FormButton onClick={focusInput}>Przelicz!</FormButton>
             </p>
-            <p className="form__info">
+            <FormParagraph>
                 Kursy pochodzą ze strony nbp.pl z Tabeli nr 009/C/NBP/2023 z dnia 2023-01-12
 
-            </p>
+            </FormParagraph>
             <Result result={result} />
-        </form>
+        </StyledForm>
     )
 };
 

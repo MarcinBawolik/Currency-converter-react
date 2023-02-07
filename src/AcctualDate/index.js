@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import ("./style.css");
+import { StyledAcctualDate } from "./styled";
+
 
 export const AcctualDate = () => {
     const [date, setDate] = useState(new Date())
@@ -14,13 +15,13 @@ export const AcctualDate = () => {
         };
     }, [])
     return (
-        <div className="acctualDate">
+        <StyledAcctualDate>
             Dzisiaj jest {date.toLocaleDateString(
                 undefined,
                 { weekday: "long", day: "numeric", month: "long" }
             )},{" "}
             {date.toLocaleTimeString()}
-        </div>
+        </StyledAcctualDate>
     )
 
 }
