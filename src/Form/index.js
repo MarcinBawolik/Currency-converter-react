@@ -29,11 +29,10 @@ const Form = ({ calculateResault, result }) => {
                     <FormSpan>
                         Kwota w zł*
                     </FormSpan>
-                    <input
+                    <FormSelect as="input"
                         ref={inputRef}
                         value={amountToBeConverted}
                         placeholder="Wpisz kwotę w zł"
-                        className="form__field"
                         type="number"
                         required
                         step="0.01"
