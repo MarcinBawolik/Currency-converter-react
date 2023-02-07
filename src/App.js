@@ -18,7 +18,7 @@ function App() {
     });
   }
   return (
-    <div className="container">
+    <div>
       <Form 
       calculateResault={calculateResault}
       result={result}
