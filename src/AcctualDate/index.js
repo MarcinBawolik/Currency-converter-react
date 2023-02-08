@@ -1,19 +1,10 @@
-import { useEffect, useState } from "react";
 import { StyledAcctualDate } from "./styled";
-
+import { useCurrentDate } from "../useCurrentDate";
 
 export const AcctualDate = () => {
-    const [date, setDate] = useState(new Date())
 
-    useEffect(() => {
-        const intervalId = setInterval(() => {
-            setDate(new Date());
-        }, 1000);
+    const date = useCurrentDate();
 
-        return () => {
-            clearInterval(intervalId);
-        };
-    }, [])
     return (
         <StyledAcctualDate>
             Dzisiaj jest {date.toLocaleDateString(
@@ -22,6 +13,5 @@ export const AcctualDate = () => {
             )},{" "}
             {date.toLocaleTimeString()}
         </StyledAcctualDate>
-    )
-
+    );
 }
