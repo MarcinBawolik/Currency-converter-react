@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import { currencies } from "../currencies";
 import { Result } from "../Result";
-import { AcctualDate } from "../AcctualDate";
+import { ActualDate } from "../ActualDate";
 import { StyledForm, FormButton, FormParagraph, FormHeader, FormSelect, FormSpan } from "./styled";
 
 
@@ -9,6 +9,7 @@ const Form = ({ calculateResault, result }) => {
     const [currency, setCurrency] = useState(currencies[0].shortName);
     const [amountToBeConverted, setAmountToBeConverted] = useState("");
     const inputRef = useRef(null)
+    
     const onFormSubmit = (event) => {
         event.preventDefault();
         calculateResault({ amountToBeConverted, currency });
@@ -20,7 +21,7 @@ const Form = ({ calculateResault, result }) => {
 
     return (
         <StyledForm onSubmit={onFormSubmit}>
-            <AcctualDate />
+            <ActualDate />
             <FormHeader>
                 Przelicznik walut
             </FormHeader>
