@@ -39,4 +39,13 @@ export const FormSpan = styled.span`
 
 export const FormParagraph = styled.p`
     color: ${({ theme }) => theme.color.silverchalice};
+    text-align: center;
+`;
+
+export const Loading = styled.p`
+    color: ${({ theme }) => theme.color.teal};
+`;
+
+export const Failure = styled.p`
+    color: ${({ theme }) => theme.color.crimson}
 `;
