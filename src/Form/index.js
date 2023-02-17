@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef } from "react";                                   
 import { Result } from "../Result";
 import { ActualDate } from "../ActualDate";
 import {
@@ -20,14 +20,16 @@ const Form = () => {
     const [result, setResult] = useState();
     const ratesData = useRatesData();
 
-    const calculateResault = (currency, amountToBeConverted) => {
+    const calculateResult = (currency, amountToBeConverted) => {
         const rate = ratesData.rates[currency];
-
+        
         setResult({
             sourceAmount: +amountToBeConverted,
             targetAmount: amountToBeConverted * rate,
             currency,
+            
         });
+        
     };
 
     const [currency, setCurrency] = useState("EUR");
@@ -35,7 +37,7 @@ const Form = () => {
 
     const onFormSubmit = (event) => {
         event.preventDefault();
-        calculateResault(amountToBeConverted, currency);
+        calculateResult(currency, amountToBeConverted);
     }
 
     const focusInput = () => {
