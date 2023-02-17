@@ -1,6 +1,18 @@
 ## Demo
 https://marcinbawolik.github.io/Currency-converter-react/
 
+# Languages and Tools used in the project:
+
+- HTML
+- Normalize
+- BEM
+- CSS
+- JavaScript
+- ES6+ features
+- Node.js
+- React
+- Axios
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
